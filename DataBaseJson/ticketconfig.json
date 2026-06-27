@@ -1,0 +1,38 @@
+{
+  "titulo": "Fale com a nossa Equipe!",
+  "descricao": "Precisa de ajuda? Está no lugar certo!\nSelecione uma das opções abaixo para falar com algum membro da Equipe.",
+  "embed": true,
+  "url_banner": "https://bare-blue-dtgyjcw9.edgeone.dev/bannerclean.png",
+  "url_thumbnail": "https://bare-blue-dtgyjcw9.edgeone.dev/bannerclean.png",
+  "modo": "select_menu",
+  "funcoes": [
+    {
+      "label": "teste",
+      "id": "teste",
+      "style": "Success",
+      "description": "teste",
+      "emoji": ""
+    },
+    {
+      "label": "Abrir ticket",
+      "id": "abrir_ticket",
+      "style": "Primary",
+      "description": "Abra seu ticket aqui.",
+      "emoji": ""
+    },
+    {
+      "label": "Abrir ticket",
+      "id": "abrir_ticket",
+      "style": "Success",
+      "description": "Abra seu ticket aqui:",
+      "emoji": ""
+    },
+    {
+      "label": "SUPORTE",
+      "id": "suporte",
+      "style": "Secondary",
+      "description": "Fale com a nossa Equipe.",
+      "emoji": "system"
+    }
+  ]
+}
