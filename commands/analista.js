@@ -181,7 +181,7 @@ module.exports = {
 
             if (i.customId === 'usuario_xitado') {
                 const modal = new ModalBuilder()
-                    .setCustomId('modal_blacklist')
+                    .setCustomId(`modal_blacklist:${user.id}:${msg.id}`)
                     .setTitle('Adicionar à Blacklist');
 
                 const motivoInput = new TextInputBuilder()
@@ -199,50 +199,5 @@ module.exports = {
                 await i.showModal(modal);
             }
         });
-
-        // Handler do modal
-        interaction.client.on('interactionCreate', async (i) => {
-            if (!i.isModalSubmit()) return;
-            if (i.customId !== 'modal_blacklist') return;
-
-            // Verifica se o usuário tem o cargo de analista
-            if (!i.member.roles.cache.has(analistaCargo)) {
-                return i.reply({
-                    content: `${emojis.negative_emoji} Apenas analistas podem usar este modal!`,
-                    ephemeral: true
-                });
-            }
-
-            const motivoBlacklist = i.fields.getTextInputValue('motivo_blacklist');
-            
-            // Aqui você pode adicionar a lógica para salvar na blacklist
-            // Similar ao comando /blacklist
-
-            const embedXitado = new EmbedBuilder()
-                .setColor('#2b2d31')
-                .setDescription(`${emojis._ban_emoji} O analista ${i.user} encontrou hack em ${user}!\n${emojis._text_emoji} **Motivo:** ${motivoBlacklist}`)
-                .setTimestamp();
-
-            // Atualiza a embed principal para mostrar o resultado
-            embedAnalise.setDescription(
-                `${emojis._people_emoji} **Usuário:** ${user}\n` +
-                `${emojis._text_emoji} **Motivo:** ${motivo}\n` +
-                `${emojis._star_emoji} **Solicitante:** ${interaction.user}\n` +
-                `${emojis._staff_emoji} **Analista:** ${i.user}\n` +
-                `${emojis._ban_emoji} **Resultado:** Usuário Xitado\n` +
-                `${emojis._text_emoji} **Motivo Blacklist:** ${motivoBlacklist}`
-            );
-
-            await i.reply({
-                embeds: [embedXitado],
-                ephemeral: true
-            });
-
-            // Atualiza a mensagem original
-            await interaction.editReply({
-                embeds: [embedAnalise],
-                components: []
-            });
-        });
     },
-}; 
+};

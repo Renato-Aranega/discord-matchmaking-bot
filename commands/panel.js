@@ -19,7 +19,7 @@ ${emojis._support_emoji || '🛠️'} Use os botões abaixo para acessar as prin
         .setLabel('Atendimento')
         .setStyle(ButtonStyle.Primary)
         .setEmoji(emojis._support_emoji),
-      new ButtonBuilder()Qfa
+      new ButtonBuilder()
         .setCustomId('panel_perms')
         .setLabel('Perms')
         .setStyle(ButtonStyle.Secondary)
